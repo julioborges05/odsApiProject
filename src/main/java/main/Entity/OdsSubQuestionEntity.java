@@ -11,7 +11,7 @@ public class OdsSubQuestionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String odsSubQuestion;
-    private Integer odsQuestionNumber;
+    private String odsQuestionNumber;
     private String status;
     private Long odsQuestionId;
 
@@ -31,11 +31,11 @@ public class OdsSubQuestionEntity {
         this.odsSubQuestion = odsSubQuestion;
     }
 
-    public Integer getOdsQuestionNumber() {
+    public String getOdsQuestionNumber() {
         return odsQuestionNumber;
     }
 
-    public void setOdsQuestionNumber(Integer odsQuestionNumber) {
+    public void setOdsQuestionNumber(String odsQuestionNumber) {
         this.odsQuestionNumber = odsQuestionNumber;
     }
 

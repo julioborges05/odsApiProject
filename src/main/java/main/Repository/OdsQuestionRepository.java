@@ -14,4 +14,6 @@ public interface OdsQuestionRepository extends JpaRepository<OdsQuestionEntity, 
     @Query(value = " select * from ods.ods_question " +
             " where ods_id = :odsId ", nativeQuery = true)
     public List<OdsQuestionEntity> findAllByOdsId(@Param("odsId")Long odsId);
+
+    public OdsQuestionEntity findByOdsQuestion(String odsQuestion);
 }

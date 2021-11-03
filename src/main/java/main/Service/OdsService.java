@@ -55,9 +55,17 @@ public class OdsService {
         for(OdsDTO odsDTO : odsDTOS) {
             odsRepository.save(OdsEntity.convert(odsDTO));
             for(OdsQuestionDTO odsQuestionDTO : odsDTO.getOdsQuestionDTOS()) {
-                odsQuestionRepository.save(OdsQuestionEntity.convert(odsQuestionDTO));
+                OdsDTO newOdsDTO = OdsDTO.convert(odsRepository.findByObjectiveName(odsDTO.getObjectiveName()));
+                OdsQuestionEntity odsQuestionEntity = OdsQuestionEntity.convert(odsQuestionDTO);
+                odsQuestionEntity.setOdsId(newOdsDTO.getOdsId());
+                odsQuestionEntity.setOdsQuestionNumber(newOdsDTO.getObjectiveNumber());
+                odsQuestionRepository.save(odsQuestionEntity);
                 for(OdsSubQuestionDTO odsSubQuestionDTO : odsQuestionDTO.getOdsSubQuestionDTOList()) {
-                    odsSubQuestionRepository.save(OdsSubQuestionEntity.convert(odsSubQuestionDTO));
+                    OdsQuestionEntity odsQuestion = odsQuestionRepository.findByOdsQuestion(odsQuestionEntity.getOdsQuestion());
+                    OdsSubQuestionEntity odsSubQuestionEntity = OdsSubQuestionEntity.convert(odsSubQuestionDTO);
+                    odsSubQuestionEntity.setOdsQuestionId(odsQuestion.getId());
+                    odsSubQuestionEntity.setOdsQuestionNumber(odsQuestion.getOdsQuestionNumber());
+                    odsSubQuestionRepository.save(odsSubQuestionEntity);
                 }
             }
         }
