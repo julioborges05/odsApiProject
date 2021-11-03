@@ -10,7 +10,9 @@ public class OdsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer objectiveNumber;
+    @Column(name = "objective_number")
+    private String objectiveNumber;
+    @Column(name = "objective_name")
     private String objectiveName;
 
     public Long getId() {
@@ -21,11 +23,11 @@ public class OdsEntity {
         this.id = id;
     }
 
-    public Integer getObjectiveNumber() {
+    public String getObjectiveNumber() {
         return objectiveNumber;
     }
 
-    public void setObjectiveNumber(Integer objectiveNumber) {
+    public void setObjectiveNumber(String objectiveNumber) {
         this.objectiveNumber = objectiveNumber;
     }
 
@@ -40,7 +42,7 @@ public class OdsEntity {
     public static OdsEntity convert(OdsDTO odsDTO) {
         OdsEntity odsEntity = new OdsEntity();
         odsEntity.setObjectiveName(odsDTO.getObjectiveName());
-        odsEntity.setObjectiveNumber(odsEntity.getObjectiveNumber());
+        odsEntity.setObjectiveNumber(odsDTO.getObjectiveNumber());
         return odsEntity;
     }
 }

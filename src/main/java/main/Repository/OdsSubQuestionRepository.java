@@ -13,5 +13,5 @@ public interface OdsSubQuestionRepository extends JpaRepository<OdsSubQuestionEn
 
     @Query(value = " select * from " +
             " ods.ods_sub_question where ods_question_number = :questionNumber ", nativeQuery = true)
-    public List<OdsSubQuestionEntity> findByQuestionNumber(@Param("questionNumber") int questionNumber);
+    public List<OdsSubQuestionEntity> findByQuestionNumber(@Param("questionNumber") String questionNumber);
 }

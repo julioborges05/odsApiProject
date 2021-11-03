@@ -19,7 +19,7 @@ public class OdsSubQuestionService {
         return new ArrayList<>();
     }
 
-    public List<OdsSubQuestionDTO> odsSubQuestionDTOListByQuestionNumber(int questionNumber) {
+    public List<OdsSubQuestionDTO> odsSubQuestionDTOListByQuestionNumber(String questionNumber) {
         return odsSubQuestionRepository
                 .findByQuestionNumber(questionNumber)
                 .stream()

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class OdsDTO {
     private Long odsId;
-    private int objectiveNumber;
+    private String objectiveNumber;
     private String objectiveName;
     private List<OdsQuestionDTO> odsQuestionDTOS;
 
@@ -21,11 +21,11 @@ public class OdsDTO {
         this.odsId = odsId;
     }
 
-    public int getObjectiveNumber() {
+    public String getObjectiveNumber() {
         return objectiveNumber;
     }
 
-    public void setObjectiveNumber(int objectiveNumber) {
+    public void setObjectiveNumber(String objectiveNumber) {
         this.objectiveNumber = objectiveNumber;
     }
 

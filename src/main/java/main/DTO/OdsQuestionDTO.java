@@ -6,7 +6,7 @@ import java.util.List;
 
 public class OdsQuestionDTO {
     private String question;
-    private int odsQuestionNumber;
+    private String odsQuestionNumber;
     private List<OdsSubQuestionDTO> odsSubQuestionDTOList;
 
     public OdsQuestionDTO() {
@@ -25,11 +25,11 @@ public class OdsQuestionDTO {
         this.question = question;
     }
 
-    public int getQuestionNumber() {
+    public String getQuestionNumber() {
         return odsQuestionNumber;
     }
 
-    public void setQuestionNumber(int questionNumber) {
+    public void setQuestionNumber(String questionNumber) {
         this.odsQuestionNumber = questionNumber;
     }
 
